@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Bohnert — Overview</title>
+    <style>
+        :root {
+            --bg: #121417;
+            --text: #e6ebf0;
+            --box: #1e232a;
+            --border: #38bdf8;
+            --border-hover: rgba(56, 189, 248, 0.14);
+            --nav-height: 64px;
+            --nav-bg: rgba(18, 20, 23, 0.88);
+        }
+
+        html, body {
+            min-height: 100%;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', 'M PLUS 1p', sans-serif;
+        }
+
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 clamp(1.25rem, 6vw, 5rem);
+            box-sizing: border-box;
+        }
+
+        .brand {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+            .brand:hover,
+            .brand:focus-visible {
+                color: var(--border);
+            }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: clamp(1rem, 2.5vw, 2rem);
+        }
+
+            .nav-links a {
+                color: var(--text);
+                text-decoration: none;
+                font-size: 0.95rem;
+                padding: 0.35rem 0.25rem;
+                border-bottom: 2px solid transparent;
+                transition: color 0.2s ease, border-color 0.2s ease;
+                white-space: nowrap;
+            }
+
+                .nav-links a:hover,
+                .nav-links a:focus-visible,
+                .nav-links a[aria-current="page"] {
+                    color: var(--border);
+                    border-bottom-color: var(--border);
+                }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: calc(var(--nav-height) + 2rem) clamp(1.5rem, 6vw, 5rem) 3rem;
+            box-sizing: border-box;
+        }
+
+        .section-inner {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: clamp(2rem, 6vw, 5rem);
+        }
+
+        .intro-content {
+            flex: 1.25;
+            min-width: 0;
+            text-align: left;
+        }
+
+        .eyebrow {
+            color: var(--border);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .intro-title {
+            font-size: clamp(2.1rem, 4vw, 3.1rem);
+            line-height: 1.15;
+            margin: 0 0 1rem;
+        }
+
+        .mission-box {
+            background: var(--box);
+            border-left: 3px solid var(--border);
+            border-radius: 0 6px 6px 0;
+            padding: 0.9rem 1.15rem;
+            margin: 1.25rem 0;
+            font-size: clamp(1rem, 1.35vw, 1.12rem);
+            line-height: 1.55;
+        }
+
+        .mission-label {
+            display: block;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--border);
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+        }
+
+        .cover-letter-copy p {
+            font-size: clamp(0.98rem, 1.25vw, 1.08rem);
+            line-height: 1.65;
+            margin: 0 0 0.9rem;
+            opacity: 0.9;
+        }
+
+        .image {
+            flex: 0.85;
+            min-width: 0;
+            height: 55vh;
+            max-height: 480px;
+            background: var(--box);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+            .image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 6px;
+            }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+            .buttons a {
+                padding: 0.85rem 1.6rem;
+                border: 2px solid var(--border);
+                border-radius: 6px;
+                color: var(--border);
+                text-decoration: none;
+                font-weight: 600;
+                transition: background-color 0.2s ease, color 0.2s ease;
+            }
+
+                .buttons a:hover,
+                .buttons a:focus-visible {
+                    background: var(--border-hover);
+                    color: var(--text);
+                }
+
+        /* Things I Love Section */
+        .things-i-love {
+            padding: 2.5rem clamp(1.5rem, 6vw, 5rem) 4.5rem;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+        }
+
+        .things-inner {
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-big-title {
+            font-size: clamp(2rem, 3.8vw, 2.85rem);
+            line-height: 1.15;
+            margin: 0;
+        }
+
+        .love-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            align-items: start;
+        }
+
+        .love-item {
+            min-width: 0;
+        }
+
+        .love-media {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: var(--box);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+            .love-media.has-video,
+            .love-media.has-image {
+                padding: 0;
+            }
+
+            .love-media video,
+            .love-media img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+        .love-placeholder {
+            font-size: 0.95rem;
+            opacity: 0.72;
+        }
+
+        .love-title {
+            font-size: clamp(1.35rem, 2.1vw, 1.7rem);
+            line-height: 1.25;
+            margin: 0 0 0.5rem;
+        }
+
+        .love-copy {
+            font-size: clamp(0.96rem, 1.2vw, 1.04rem);
+            line-height: 1.65;
+            margin: 0 0 1rem;
+            opacity: 0.88;
+        }
+
+        .inline-link {
+            color: var(--border);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+            .inline-link:hover,
+            .inline-link:focus-visible {
+                color: var(--text);
+                border-bottom-color: var(--border);
+            }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 0.85rem;
+            }
+
+                .nav-links a {
+                    font-size: 0.875rem;
+                }
+
+            .section-inner {
+                flex-direction: column-reverse;
+                justify-content: center;
+                gap: 2rem;
+            }
+
+            .intro-content {
+                width: 100%;
+                text-align: center;
+            }
+
+            .mission-box {
+                text-align: left;
+            }
+
+            .cover-letter-copy {
+                text-align: left;
+            }
+
+            .image {
+                width: 100%;
+                max-width: 360px;
+                height: 32vh;
+                max-height: none;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .things-i-love {
+                padding: 1.5rem clamp(1.25rem, 5vw, 2rem) 3.5rem;
+            }
+
+            .love-grid {
+                grid-template-columns: 1fr;
+                gap: 2.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-nav">
+        <a href="index.html" class="brand">Ryan Bohnert</a>
+        <nav class="nav-links" aria-label="Primary">
+            <a href="index.html" aria-current="page">Overview</a>
+            <a href="work.html">Work</a>
+            <a href="background.html">Background</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="section-inner">
+                <div class="intro-content">
+                    <div class="eyebrow">Portfolio &amp; Overview</div>
+                    <h1 class="intro-title">Hi, I'm Ryan Bohnert.</h1>
+
+                    <div class="mission-box">
+                        <span class="mission-label">Personal Mission Statement</span>
+                        [Add your personal mission statement here—what you aim to build, solve, or contribute across software, hands-on technical projects, and community spaces.]
+                    </div>
+
+                    <div class="cover-letter-copy">
+                        <p>
+                            [Cover-letter intro paragraph 1: Introduce who you are, your core strengths, and your hands-on approach to solving problems—whether writing code, building custom hardware, or organizing community events.]
+                        </p>
+                        <p>
+                            [Cover-letter intro paragraph 2: Share what motivates you and what kind of roles, teams, or opportunities you are looking for next, inviting visitors to explore your work and background.]
+                        </p>
+                    </div>
+
+                    <div class="buttons">
+                        <a href="work.html">Explore Work</a>
+                        <a href="background.html">View Background</a>
+                    </div>
+                </div>
+
+                <div class="image">
+                    <!-- Replace this placeholder with: <img src="me.jpg" alt="Portrait of Ryan Bohnert"> -->
+                    Portrait / Photo of Ryan Bohnert
+                </div>
+            </div>
+        </section>
+
+        <section class="things-i-love" id="things-i-love" aria-labelledby="things-i-love-heading">
+            <div class="things-inner">
+                <div class="section-header">
+                    <div class="eyebrow">Beyond The Resume</div>
+                    <h2 class="section-big-title" id="things-i-love-heading">Things I Love</h2>
+                </div>
+
+                <div class="love-grid">
+                    <article class="love-item">
+                        <div class="love-media has-video">
+                            <video src="CRT Melee.mp4" autoplay muted loop playsinline></video>
+                        </div>
+                        <h3 class="love-title">Tournament Organizer</h3>
+                        <p class="love-copy">
+                            Building and running community tournaments, especially for Super Smash Brothers Melee. Setting up stations, keeping brackets moving, and bringing people together for a great event is something I really enjoy[cite: 2].
+                        </p>
+                        <a href="work.html#one" class="inline-link">More on Work page &rarr;</a>
+                    </article>
+
+                    <article class="love-item">
+                        <div class="love-media">
+                            <span class="love-placeholder">[Add controller build photo here]</span>
+                        </div>
+                        <h3 class="love-title">Custom Controllers</h3>
+                        <p class="love-copy">
+                            Building and soldering custom builds from scratch[cite: 2]. Picking components, wiring layouts cleanly, and dialing in a controller that feels solid and responsive is a favorite hands-on project[cite: 2].
+                        </p>
+                        <a href="work.html#two" class="inline-link">More on Work page &rarr;</a>
+                    </article>
+
+                    <article class="love-item">
+                        <div class="love-media has-image">
+                            <img src="arena.jpg" alt="E-sports arena">
+                        </div>
+                        <h3 class="love-title">E-Sports Infrastructure</h3>
+                        <p class="love-copy">
+                            Tinkering with e-sports networking and event infrastructure[cite: 2]. Figuring out reliable station layouts, low-latency setups, and smooth hardware behind the scenes ties right into hardware and networking work[cite: 2].
+                        </p>
+                        <a href="work.html#three" class="inline-link">More on Work page &rarr;</a>
+                    </article>
+
+                    <article class="love-item">
+                        <div class="love-media">
+                            <span class="love-placeholder">[Add another photo or video here]</span>
+                        </div>
+                        <h3 class="love-title">[Another Thing You Love]</h3>
+                        <p class="love-copy">
+                            [Room for one more favorite—like home lab networking, retro hardware, or another hobby you want to highlight here.]
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
