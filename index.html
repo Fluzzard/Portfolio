@@ -254,6 +254,45 @@
                 display: block;
             }
 
+            /* 4-picture 2x2 grid for Custom Controllers */
+            .love-media.media-quad {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-rows: repeat(2, minmax(0, 1fr));
+                gap: 6px;
+                padding: 6px;
+                background: var(--bg);
+                border: 1px solid rgba(56, 189, 248, 0.2);
+            }
+
+        .quad-slot {
+            width: 100%;
+            height: 100%;
+            background: var(--box);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            box-sizing: border-box;
+        }
+
+            .quad-slot.has-image {
+                padding: 0;
+            }
+
+            .quad-slot img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            .quad-slot .love-placeholder {
+                font-size: 0.8rem;
+            }
+
         .love-placeholder {
             font-size: 0.95rem;
             opacity: 0.72;
@@ -395,18 +434,30 @@
                         </div>
                         <h3 class="love-title">Tournament Organizer</h3>
                         <p class="love-copy">
-                            Building and running community tournaments, especially for Super Smash Brothers Melee. Setting up stations, keeping brackets moving, and bringing people together for a great event is something I really enjoy[cite: 2].
+                            Building and running community tournaments, especially for Super Smash Brothers Melee. Setting up stations, keeping brackets moving, and bringing people together for a great event is something I really enjoy.
                         </p>
                         <a href="work.html#one" class="inline-link">More on Work page &rarr;</a>
                     </article>
 
                     <article class="love-item">
-                        <div class="love-media">
-                            <span class="love-placeholder">[Add controller build photo here]</span>
+                        <div class="love-media media-quad">
+                            <!-- Add class="has-image" to .quad-slot when replacing a placeholder with an <img> -->
+                            <div class="quad-slot">
+                                <span class="love-placeholder">[Photo 1]</span>
+                            </div>
+                            <div class="quad-slot">
+                                <span class="love-placeholder">[Photo 2]</span>
+                            </div>
+                            <div class="quad-slot">
+                                <span class="love-placeholder">[Photo 3]</span>
+                            </div>
+                            <div class="quad-slot">
+                                <span class="love-placeholder">[Photo 4]</span>
+                            </div>
                         </div>
                         <h3 class="love-title">Custom Controllers</h3>
                         <p class="love-copy">
-                            Building and soldering custom builds from scratch[cite: 2]. Picking components, wiring layouts cleanly, and dialing in a controller that feels solid and responsive is a favorite hands-on project[cite: 2].
+                            Building and soldering custom builds from scratch. Picking components, wiring layouts cleanly, and dialing in a controller that feels solid and responsive is a favorite hands-on project.
                         </p>
                         <a href="work.html#two" class="inline-link">More on Work page &rarr;</a>
                     </article>
@@ -417,19 +468,20 @@
                         </div>
                         <h3 class="love-title">E-Sports Infrastructure</h3>
                         <p class="love-copy">
-                            Tinkering with e-sports networking and event infrastructure[cite: 2]. Figuring out reliable station layouts, low-latency setups, and smooth hardware behind the scenes ties right into hardware and networking work[cite: 2].
+                            Tinkering with e-sports networking and event infrastructure. Figuring out reliable station layouts, low-latency setups, and smooth hardware behind the scenes ties right into hardware and networking work.
                         </p>
                         <a href="work.html#three" class="inline-link">More on Work page &rarr;</a>
                     </article>
 
                     <article class="love-item">
                         <div class="love-media">
-                            <span class="love-placeholder">[Add another photo or video here]</span>
+                            <span class="love-placeholder">[Add AV setup photo or video here]</span>
                         </div>
-                        <h3 class="love-title">[Another Thing You Love]</h3>
+                        <h3 class="love-title">Audio / Visual (AV)</h3>
                         <p class="love-copy">
-                            [Room for one more favorite—like home lab networking, retro hardware, or another hobby you want to highlight here.]
+                            Setting up live audio, video routing, and broadcast production. From managing signal chains and capture setups to dialing in crisp sound and clean overlays, I love making live events look and sound great.
                         </p>
+                        <a href="work.html#four" class="inline-link">More on Work page &rarr;</a>
                     </article>
                 </div>
             </div>
