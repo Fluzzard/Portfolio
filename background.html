@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Bohnert — Background</title>
+    <style>
+        :root {
+            --bg: #121417;
+            --text: #e6ebf0;
+            --box: #1e232a;
+            --border: #38bdf8;
+            --border-hover: rgba(56, 189, 248, 0.14);
+            --nav-height: 64px;
+            --nav-bg: rgba(18, 20, 23, 0.88);
+        }
+
+        html, body {
+            min-height: 100%;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', 'M PLUS 1p', sans-serif;
+        }
+
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 clamp(1.25rem, 6vw, 5rem);
+            box-sizing: border-box;
+        }
+
+        .brand {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+        .brand:hover,
+        .brand:focus-visible {
+            color: var(--border);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: clamp(1rem, 2.5vw, 2rem);
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 0.35rem 0.25rem;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s ease, border-color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible,
+        .nav-links a[aria-current="page"] {
+            color: var(--border);
+            border-bottom-color: var(--border);
+        }
+
+        .page-main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: calc(var(--nav-height) + 2.5rem) clamp(1.5rem, 6vw, 5rem) 4.5rem;
+            box-sizing: border-box;
+        }
+
+        .page-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .eyebrow {
+            color: var(--border);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title {
+            font-size: clamp(2.1rem, 4vw, 3rem);
+            line-height: 1.15;
+            margin: 0 0 0.75rem;
+        }
+
+        .page-subtitle {
+            font-size: clamp(1rem, 1.3vw, 1.1rem);
+            line-height: 1.6;
+            opacity: 0.85;
+            margin: 0;
+            max-width: 720px;
+        }
+
+        .content-section {
+            margin-top: 3rem;
+        }
+
+        .section-heading {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            line-height: 1.2;
+            margin: 0 0 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.22);
+        }
+
+        .card {
+            background: var(--box);
+            border: 1px solid rgba(56, 189, 248, 0.22);
+            border-radius: 8px;
+            padding: 1.4rem 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .resume-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(230, 235, 240, 0.1);
+        }
+
+        .resume-name {
+            margin: 0 0 0.25rem;
+            font-size: 1.35rem;
+        }
+
+        .resume-contact {
+            font-size: 0.92rem;
+            opacity: 0.82;
+            line-height: 1.5;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 0.7rem 1.3rem;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            color: var(--border);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .btn-outline:hover,
+        .btn-outline:focus-visible {
+            background: var(--border-hover);
+            color: var(--text);
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .sub-heading {
+            color: var(--border);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin: 0 0 0.65rem;
+        }
+
+        .entry-item {
+            margin-bottom: 1.1rem;
+        }
+
+        .entry-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            font-size: 1rem;
+            margin: 0 0 0.2rem;
+        }
+
+        .entry-meta {
+            font-size: 0.88rem;
+            color: var(--border);
+            margin-bottom: 0.4rem;
+        }
+
+        .entry-copy,
+        .bullet-list {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+            opacity: 0.88;
+        }
+
+        .bullet-list {
+            padding-left: 1.15rem;
+        }
+
+        .bullet-list li {
+            margin-bottom: 0.35rem;
+        }
+
+        .volunteer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-top: 0.85rem;
+        }
+
+        .skill-tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--border);
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 4px;
+            padding: 0.2rem 0.55rem;
+        }
+
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quote-text {
+            border-left: 3px solid var(--border);
+            padding-left: 0.9rem;
+            margin: 0 0 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.92;
+        }
+
+        .ref-author {
+            font-weight: 700;
+            font-size: 0.98rem;
+            margin: 0 0 0.15rem;
+        }
+
+        .ref-role {
+            font-size: 0.86rem;
+            opacity: 0.78;
+            margin: 0 0 0.5rem;
+        }
+
+        .ref-link {
+            color: var(--border);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .ref-link:hover,
+        .ref-link:focus-visible {
+            color: var(--text);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+            .references-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 0.85rem;
+            }
+
+            .nav-links a {
+                font-size: 0.875rem;
+            }
+
+            .resume-grid,
+            .volunteer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-nav">
+        <a href="index.html" class="brand">Ryan Bohnert</a>
+        <nav class="nav-links" aria-label="Primary">
+            <a href="index.html">Overview</a>
+            <a href="work.html">Work</a>
+            <a href="background.html" aria-current="page">Background</a>
+        </nav>
+    </header>
+
+    <main class="page-main">
+        <div class="page-header">
+            <div class="eyebrow">Résumé, Volunteer Work &amp; References</div>
+            <h1 class="page-title">Background</h1>
+            <p class="page-subtitle">
+                A look at my technical and hands-on background, community involvement highlighting IT and soft skills, and personal references.
+            </p>
+        </div>
+
+        <!-- 2. Résumé -->
+        <section class="content-section" id="resume" aria-labelledby="resume-heading">
+            <h2 class="section-heading" id="resume-heading">Résumé</h2>
+            <div class="card">
+                <div class="resume-header">
+                    <div>
+                        <h3 class="resume-name">Ryan Bohnert</h3>
+                        <div class="resume-contact">
+                            [City, Province/Country] &bull; [your.email@example.com] &bull; [LinkedIn / GitHub / Portfolio Link]
+                        </div>
+                    </div>
+                    <!-- Replace "#" with a link to a downloadable PDF resume when ready -->
+                    <a href="#" class="btn-outline">Download Résumé (PDF)</a>
+                </div>
+
+                <div class="resume-grid">
+                    <div>
+                        <h4 class="sub-heading">Experience &amp; Hands-On Work</h4>
+                        <div class="entry-item">
+                            <div class="entry-title">[Role / Title — e.g., Hardware &amp; Networking Builder / Event Tech]</div>
+                            <div class="entry-meta">[Organization or Independent] &bull; [Dates]</div>
+                            <ul class="bullet-list">
+                                <li>[Describe hands-on hardware, networking, troubleshooting, or technical setup experience.]</li>
+                                <li>[Include measurable outcomes, reliability improvements, or key responsibilities.]</li>
+                            </ul>
+                        </div>
+                        <div class="entry-item">
+                            <div class="entry-title">[Second Role / Experience]</div>
+                            <div class="entry-meta">[Organization] &bull; [Dates]</div>
+                            <ul class="bullet-list">
+                                <li>[Add another relevant role, job, or practical experience entry.]</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="sub-heading">Education &amp; Technical Skills</h4>
+                        <div class="entry-item">
+                            <div class="entry-title">[Program / Degree / Diploma or Certification]</div>
+                            <div class="entry-meta">[Institution Name] &bull; [Graduation Year / Status]</div>
+                            <p class="entry-copy">
+                                [Relevant coursework, focus areas in networking/hardware, or key academic projects.]
+                            </p>
+                        </div>
+                        <div class="entry-item">
+                            <div class="entry-title">Core Strengths</div>
+                            <ul class="bullet-list">
+                                <li><strong>Hardware &amp; Networking:</strong> [e.g., PC/station setup, local networking, soldering, custom controller builds, AV signal routing]</li>
+                                <li><strong>Web &amp; Code:</strong> [e.g., HTML, CSS, layout structure, troubleshooting]</li>
+                                <li><strong>Soft Skills:</strong> [e.g., Event coordination, clear communication, calm troubleshooting under pressure, teamwork]</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2b. Volunteer Experience (IT & Soft Skills) -->
+        <section class="content-section" id="volunteer" aria-labelledby="volunteer-heading">
+            <h2 class="section-heading" id="volunteer-heading">Volunteer Experience</h2>
+            <div class="volunteer-grid">
+                <article class="card">
+                    <h3 class="entry-title">Community Tournament &amp; Event Organizer</h3>
+                    <div class="entry-meta">Super Smash Bros. Melee / Local Gaming Community &bull; [Dates]</div>
+                    <p class="entry-copy">
+                        Coordinated event logistics, set up gaming and broadcast stations, managed bracket flow, and welcomed newcomers into a friendly, organized environment.
+                    </p>
+                    <div class="tag-row">
+                        <span class="skill-tag">AV &amp; Station Setup</span>
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Conflict &amp; Pace Management</span>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <h3 class="entry-title">[Second Volunteer Role — e.g., Tech Support / Community Helper]</h3>
+                    <div class="entry-meta">[Organization or Community Group] &bull; [Dates]</div>
+                    <p class="entry-copy">
+                        [Describe how you helped others with technical troubleshooting, equipment setup, documentation, or team support, emphasizing clear communication and reliability.]
+                    </p>
+                    <div class="tag-row">
+                        <span class="skill-tag">Troubleshooting / IT</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Teamwork</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 3. Personal References & Accolades (At least 3) -->
+        <section class="content-section" id="references" aria-labelledby="references-heading">
+            <h2 class="section-heading" id="references-heading">Personal References &amp; Accolades</h2>
+            <div class="references-grid">
+                <article class="card">
+                    <blockquote class="quote-text">
+                        "[Add a quote or accolade from Reference #1 highlighting your reliability, problem-solving, or character.]"
+                    </blockquote>
+                    <p class="ref-author">[Reference #1 Name]</p>
+                    <p class="ref-role">[Relationship / Title — e.g., Co-Organizer, Mentor, Teammate]</p>
+                    <!-- Optional: link to a full reference letter PDF or anchor -->
+                    <a href="#" class="ref-link">Letter of Reference &rarr;</a>
+                </article>
+
+                <article class="card">
+                    <blockquote class="quote-text">
+                        "[Add a quote or accolade from Reference #2 speaking to your hands-on technical skills, patience, or work ethic.]"
+                    </blockquote>
+                    <p class="ref-author">[Reference #2 Name]</p>
+                    <p class="ref-role">[Relationship / Title]</p>
+                    <a href="#" class="ref-link">Letter of Reference &rarr;</a>
+                </article>
+
+                <article class="card">
+                    <blockquote class="quote-text">
+                        "[Add a quote or accolade from Reference #3 noting how you collaborate with others and follow through on commitments.]"
+                    </blockquote>
+                    <p class="ref-author">[Reference #3 Name]</p>
+                    <p class="ref-role">[Relationship / Title]</p>
+                    <a href="#" class="ref-link">Letter of Reference &rarr;</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
